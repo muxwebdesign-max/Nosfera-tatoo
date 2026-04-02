@@ -265,6 +265,13 @@ ul {
     font-size: 1.1rem;
 }
 
+.piercing-img {
+    width: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    border: 2px solid var(--text-dark);
+}
+
 /* =========================================
    TATUADORES (INSTAGRAM EMBEDS)
    ========================================= */
@@ -286,16 +293,12 @@ ul {
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.artist-embed {
-    /* El script de instagram inyecta un iframe que toma un min-width. 
-       Aseguramos que el contenedor no explote en movil */
+.artist-img {
     width: 100%;
-    min-height: 450px; 
-    overflow: hidden;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
     background-color: var(--bg-light);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .artist-info {
@@ -318,33 +321,37 @@ ul {
 }
 
 /* =========================================
-   ESTILOS (GRID CUADRADOS LÍMPIO)
+   ESTILOS (GRID CUADRADOS LÍMPIO -> ETIQUETAS)
    ========================================= */
 .styles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .style-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 1.5rem;
-    background-color: var(--bg-main);
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: transparent;
     border: 2px solid var(--text-dark);
     color: var(--text-dark);
-    font-weight: 800;
-    font-size: 1.25rem;
+    font-weight: 700;
+    font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    border-radius: 50px;
     transition: all 0.3s ease;
     text-align: center;
+    text-decoration: none;
 }
 
 .style-box:hover {
     background-color: var(--text-dark);
     color: var(--bg-main);
+    transform: translateY(-2px);
 }
 
 /* =========================================
@@ -428,22 +435,22 @@ ul {
 /* =========================================
    FLOATING ELEMENTS (Whatsapp & Cookies)
    ========================================= */
-.floating-whatsapp {
+.floating-phone {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #25D366;
+    background-color: var(--text-dark);
     border-radius: 50%;
     width: 60px;
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     transition: transform 0.3s;
 }
-.floating-whatsapp:hover { transform: scale(1.1); }
+.floating-phone:hover { transform: scale(1.1); background-color: var(--accent-red); }
 
 .cookie-banner {
     position: fixed;
