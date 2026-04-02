@@ -1,0 +1,489 @@
+/* =========================================================================
+   NOSFERATU TATTOO - MINIMALIST STUDIO AESTHETIC (InkSweet Inspiration)
+   ========================================================================= */
+
+   :root {
+    /* Paleta Limpia Alto Contraste */
+    --bg-main: #FFFFFF;
+    --bg-light: #F7F7F7;
+    --text-dark: #000000;
+    --text-muted: #666666;
+    --accent-red: #D32F2F; /* Rojo muy usado en Tattoo clásico */
+    
+    /* Tipografía */
+    --font-main: 'Montserrat', sans-serif;
+    
+    /* Espaciado y Layout */
+    --padding-section: 6rem 5%;
+    --max-width: 1300px;
+}
+
+/* =========================================
+   RESET & BASICS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Utility Classes */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+}
+.bg-light { background-color: var(--bg-light); }
+.text-center { text-align: center; }
+
+/* =========================================
+   BOTONES
+   ========================================= */
+.btn-solid, .btn-outline-dark {
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--text-dark);
+}
+
+.btn-solid {
+    background-color: var(--text-dark);
+    color: var(--bg-main);
+}
+.btn-solid:hover {
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+}
+
+.btn-outline-dark {
+    background-color: transparent;
+    color: var(--text-dark);
+}
+.btn-outline-dark:hover {
+    background-color: var(--text-dark);
+    color: var(--bg-main);
+}
+
+/* =========================================
+   NAVBAR (MINIMAL)
+   ========================================= */
+.navbar {
+    background-color: var(--bg-main);
+    padding: 1.5rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: var(--text-dark);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links li a {
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+/* Hover efect underline */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--text-dark);
+    transition: width 0.3s ease;
+}
+.nav-links li a:hover::after { width: 100%; }
+
+/* Hamburger Menu (Mobile) */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-main);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.4s ease;
+    z-index: 99;
+}
+.mobile-menu.active { left: 0; }
+.mobile-link {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero-section {
+    padding: 8rem 5%;
+    text-align: center;
+    background-color: var(--bg-main);
+}
+
+.tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.hero-content h1 {
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    font-weight: 500;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   VALORES / ESTUDIO DUAL COLUMN
+   ========================================= */
+.section {
+    padding: var(--padding-section);
+}
+
+.section-header {
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+}
+
+.dual-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+}
+
+.col-text h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.col-text p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   TATUADORES (INSTAGRAM EMBEDS)
+   ========================================= */
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+}
+
+.artist-card {
+    background-color: var(--bg-main);
+    border: 1px solid #EAEAEA;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.artist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.artist-embed {
+    /* El script de instagram inyecta un iframe que toma un min-width. 
+       Aseguramos que el contenedor no explote en movil */
+    width: 100%;
+    min-height: 450px; 
+    overflow: hidden;
+    background-color: var(--bg-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.artist-info {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid #EAEAEA;
+}
+
+.artist-info h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.artist-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* =========================================
+   ESTILOS (GRID CUADRADOS LÍMPIO)
+   ========================================= */
+.styles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.style-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+    background-color: var(--bg-main);
+    border: 2px solid var(--text-dark);
+    color: var(--text-dark);
+    font-weight: 800;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.style-box:hover {
+    background-color: var(--text-dark);
+    color: var(--bg-main);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.footer {
+    background-color: var(--text-dark);
+    color: var(--bg-main);
+    padding: 6rem 5% 2rem 5%;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer-col h2, .footer-col h3 {
+    margin-bottom: 1.5rem;
+}
+
+.brand h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.brand p {
+    color: #A0A0A0;
+    margin-bottom: 1.5rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    color: var(--bg-main);
+    background-color: #222;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.footer-social a:hover {
+    background-color: var(--accent-red);
+}
+
+.footer-col p {
+    color: #A0A0A0;
+    margin-bottom: 0.5rem;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.links a {
+    color: #A0A0A0;
+}
+.links a:hover {
+    color: var(--bg-main);
+}
+
+.footer-bottom {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+}
+
+/* =========================================
+   FLOATING ELEMENTS (Whatsapp & Cookies)
+   ========================================= */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: transform 0.3s;
+}
+.floating-whatsapp:hover { transform: scale(1.1); }
+
+.cookie-banner {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    background-color: var(--text-dark);
+    color: white;
+    padding: 1.5rem;
+    z-index: 2000;
+    transition: bottom 0.5s ease;
+}
+
+.cookie-banner.show { bottom: 0; }
+
+.cookie-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cookie-content p { font-size: 0.9rem; }
+.cookie-content a { color: #A0A0A0; text-decoration: underline; }
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    
+    .hero-section { padding: 5rem 5%; }
+    .hero-content h1 { font-size: 3.5rem; }
+    
+    .section { padding: 4rem 5%; }
+    .dual-col { gap: 2.5rem; }
+    
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
